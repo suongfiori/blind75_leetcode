@@ -22,7 +22,7 @@ function twoSum(nums, target) {
             return [numMap[complement], i]; // Step 4: If complement exists, return the indices of the numbers.
         }
     
-        numMap[currNum] = i; // Step 5: Store the current number and its index in the numMap object.
+        numMap[currNum] = i; // Step 5: Store the current number (key = currNum) and its index (index = i) in the numMap object.
     }
   
     return []; // Step 6: If no pair is found, return an empty array.
