@@ -15,13 +15,14 @@ function twoSum(nums, target) {
     const numMap = {}; // Step 1: Initialize an empty object to store numbers and their indices.
   
     for (let i = 0; i < nums.length; i++) {
-      const complement = target - nums[i]; // Step 2: Calculate the complement of the current number.
-  
-      if (numMap.hasOwnProperty(complement)) { // Step 3: Check if the complement exists in the numMap object.
-        return [numMap[complement], i]; // Step 4: If complement exists, return the indices of the numbers.
-      }
-  
-      numMap[nums[i]] = i; // Step 5: Store the current number and its index in the numMap object.
+        const currNum = nums[i]
+        const complement = target - currNum; // Step 2: Calculate the complement of the current number.
+    
+        if (numMap.hasOwnProperty(complement)) { // Step 3: Check if the complement exists in the numMap object.
+            return [numMap[complement], i]; // Step 4: If complement exists, return the indices of the numbers.
+        }
+    
+        numMap[currNum] = i; // Step 5: Store the current number and its index in the numMap object.
     }
   
     return []; // Step 6: If no pair is found, return an empty array.
