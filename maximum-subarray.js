@@ -27,33 +27,19 @@ function maxSubArraySum(nums) {
     }, nums[0])
 }
 
-// Option 2, with error handling in case the array is provided empty
+// Option 2 using Math.max
 
-function maxSubarraySum(nums) {
-
-    // if (nums.length === 0) {
-    //     throw new Error ("Array should not be empty!")
-    // }
-    
-    // Check if the array is empty
-
-    if (nums.length === 0) return 0 // Return a default value for an empty array
-
-    let currentSum = 0 // Initialize the current sum
-
-  // Use the reduce() method to find the maximum subarray sum
-    return nums.reduce((maxSum, num) => {
-         // Compare num with the current sum plus num
-        // Update currentSum if num is greater, otherwise continue extending the subarray
-      currentSum = (num > currentSum + num) ? num : currentSum + num
-
-      // Compare currentSum with maxSum and update maxSum if currentSum is greater
-      if (currentSum > maxSum) {  
-        maxSum = currentSum
-      }
-      return maxSum;  // Return the updated maxSum for the next iteration
-    }, nums[0])   // Initial value for maxSum is the first element of the array
+  function maxSubarraySum(nums) {
+    let sum = 0 // Initialize the current subarray sum
+    let max = 0 // Initialize the maximum subarray sum
+  
+    nums.reduce((_, num) => {
+      sum = Math.max(num, sum + num)
+      max = Math.max(max, sum)
+    }, 0)        // Initial value for maxSum in reduce is 0
+  
+    return max  // Return the updated max for the next iteration
   }
-
+  
 console.log(maxSubarraySum([5,4,-1,7,8])); //Output: 23
 console.log(maxSubarraySum([-2,1,-3,4,-1,2,1,-5,4])); //Output: 6
