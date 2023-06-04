@@ -24,4 +24,4 @@ function containsDuplicate (nums) {
     }
     return false
 };
-console.log(containsDuplicate ([1, 2, 4, 1]))
+console.log(containsDuplicate ([1, 2, 4, 5]))
