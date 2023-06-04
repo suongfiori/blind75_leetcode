@@ -36,10 +36,18 @@ function maxSubArraySum(nums) {
     nums.reduce((_, num) => {
       sum = Math.max(num, sum + num)
       max = Math.max(max, sum)
-    }, 0)        // Initial value for maxSum in reduce is 0
+    }, 0)        // Initial value for max in reduce is 0
   
     return max  // Return the updated max for the next iteration
   }
+
+/* 
+The Math.max() function is a built-in JavaScript method takes multiple arguments 
+and returns the maximum value among those arguments.
+Math.max(value1, value2, ..., valueN)
+console.log(Math.max(5, 2, 9)); // Output: 9
+console.log(Math.max(-2, 0, 7, -10)); // Output: 7
+*/
   
 console.log(maxSubarraySum([5,4,-1,7,8])); //Output: 23
 console.log(maxSubarraySum([-2,1,-3,4,-1,2,1,-5,4])); //Output: 6
